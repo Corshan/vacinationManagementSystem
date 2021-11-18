@@ -1,0 +1,49 @@
+.root{
+    -fx-background-color: rgb(64, 64, 64);
+}
+
+.label{
+    -fx-text-fill: white;
+}
+
+.menu-bar{
+    -fx-background-color: rgb(89, 89, 89);
+}
+
+.menu-item{
+    -fx-background-color: rgb(89, 89, 89);
+}
+
+.tool-bar{
+    -fx-background-color: rgb(89, 89, 89);
+}
+
+.tab-label{
+    -fx-text-fill: white;
+}
+
+.tab{
+    -fx-background-color: rgb(51, 51, 51);
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: rgb(89,89,89);
+}
+
+.button{
+    -fx-background-color: rgb(128, 128, 128);
+    -fx-text-fill: white;
+}
+
+.text-field{
+    -fx-background-color: rgb(128, 128, 128);
+    -fx-text-fill: white;
+}
+
+.combo-box-base{
+    -fx-background-color: rgb(128, 128, 128);
+}
+
+.choice-box{
+    -fx-background-color: rgb(128, 128, 128);
+}

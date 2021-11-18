@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DeleteMenuController">
+   <children>
+      <ToolBar layoutY="450.0" prefHeight="40.0" prefWidth="600.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#switchToMainMenu" text="Back to Main Menu" />
+        </items>
+      </ToolBar>
+      <TabPane prefHeight="448.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Centre">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="600.0">
+                     <children>
+                        <ListView fx:id="centreListView" layoutX="14.0" layoutY="14.0" prefHeight="166.0" prefWidth="574.0" />
+                        <VBox layoutX="14.0" layoutY="187.0" prefHeight="50.0" prefWidth="307.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="17.0" prefWidth="167.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Name of Centre" />
+                                    <TextField fx:id="centreName" />
+                                    <Button mnemonicParsing="false" onAction="#searchCentreName" text="Search" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="17.0" prefWidth="167.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Eircode" />
+                                    <TextField fx:id="centreEircode" />
+                                    <Button mnemonicParsing="false" onAction="#searchCentreEircode" text="Search" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button layoutX="408.0" layoutY="200.0" mnemonicParsing="false" onAction="#deleteCentre" prefHeight="63.0" prefWidth="110.0" text="Delete" />
+                        <Button layoutX="83.0" layoutY="250.0" mnemonicParsing="false" onAction="#showAllCentres" text="Show All Centres" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#updateCentres" text="Booth">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="boothListView" layoutX="14.0" layoutY="14.0" onMouseClicked="#showAllAppointments" prefHeight="166.0" prefWidth="574.0" />
+                        <VBox layoutX="14.0" layoutY="185.0" prefHeight="26.0" prefWidth="370.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="3.0" prefWidth="307.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Choose Vaccination Centre" />
+                                    <ChoiceBox fx:id="centreChoiceBox" prefWidth="150.0" />
+                                    <Button mnemonicParsing="false" onAction="#showCentreBooths" text="Search" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="17.0" prefWidth="167.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Booth identifier" />
+                                    <TextField fx:id="boothIdentifier" />
+                                    <Button mnemonicParsing="false" onAction="#searchBoothIdentifier" text="Search" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button layoutX="407.0" layoutY="200.0" mnemonicParsing="false" onAction="#deleteBooth" prefHeight="63.0" prefWidth="110.0" text="Delete" />
+                        <Button layoutX="142.0" layoutY="250.0" mnemonicParsing="false" onAction="#showAllBooths" text="Show All Booths" />
+                        <ListView fx:id="appointmentListView" layoutX="14.0" layoutY="290.0" prefHeight="126.0" prefWidth="358.0" />
+                        <Label fx:id="warningLabel" layoutX="384.0" layoutY="343.0" prefHeight="19.0" prefWidth="198.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Patient">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="patientListView" layoutX="14.0" layoutY="14.0" onMouseClicked="#showPatientRecords" prefHeight="166.0" prefWidth="574.0" />
+                        <VBox layoutX="14.0" layoutY="185.0" prefHeight="46.0" prefWidth="307.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="17.0" prefWidth="167.0" spacing="5.0">
+                                 <children>
+                                    <Label text="PPSN" />
+                                    <TextField fx:id="searchPPSN" />
+                                    <Button mnemonicParsing="false" onAction="#searchPatientPPSN" text="Search" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="17.0" prefWidth="167.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Name of Patient" />
+                                    <TextField fx:id="searchName" />
+                                    <Button mnemonicParsing="false" onAction="#searchPatientName" text="Search" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button layoutX="407.0" layoutY="200.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="63.0" prefWidth="110.0" text="Delete Patient" />
+                        <Button layoutX="83.0" layoutY="251.0" mnemonicParsing="false" onAction="#showAllPatients" text="Show All Patients" />
+                        <Button layoutX="407.0" layoutY="323.0" mnemonicParsing="false" onAction="#deletePatientRecord" prefHeight="63.0" prefWidth="110.0" text="Delete Record" />
+                        <ListView fx:id="recordListView" layoutX="14.0" layoutY="286.0" prefHeight="130.0" prefWidth="334.0" />
+                        <Separator layoutX="361.0" layoutY="180.0" orientation="VERTICAL" prefHeight="246.0" prefWidth="38.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

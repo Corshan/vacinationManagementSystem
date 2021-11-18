@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchMenuController">
+   <children>
+      <TabPane prefHeight="450.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Vaccination Centre">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="446.0">
+                     <children>
+                        <ListView fx:id="centreListView" layoutX="11.0" layoutY="14.0" onMouseClicked="#selectCentre" prefHeight="165.0" prefWidth="574.0" />
+                        <VBox layoutX="327.0" layoutY="184.0" prefHeight="150.0" prefWidth="258.0" spacing="2.0">
+                           <children>
+                              <HBox prefHeight="14.0" prefWidth="258.0" spacing="45.0">
+                                 <children>
+                                    <Label text="Name" />
+                                    <TextField fx:id="editCentreName" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="18.0" prefWidth="258.0" spacing="34.0">
+                                 <children>
+                                    <Label text="Address" />
+                                    <TextField fx:id="editCentreAddress" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="18.0" prefWidth="258.0" spacing="40.0">
+                                 <children>
+                                    <Label text="Eircode" />
+                                    <TextField fx:id="editCentreEircode" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="20.0" prefWidth="258.0" spacing="10.0">
+                                 <children>
+                                    <VBox prefHeight="35.0" prefWidth="69.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="67.0" text="No. Parking" />
+                                          <Label text="Spaces" />
+                                       </children>
+                                    </VBox>
+                                    <TextField fx:id="editCentreParkingNum" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutY="7.0" mnemonicParsing="false" onAction="#editCentre" text="Edit" />
+                                    <Label fx:id="invalidParkingNum" layoutX="129.0" layoutY="-1.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="11.0" layoutY="187.0" prefHeight="140.0" prefWidth="299.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="0.0" prefWidth="282.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Name" />
+                                    <TextField fx:id="centreName" />
+                                    <Button mnemonicParsing="false" onAction="#searchCentreByName" text="Search" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="0.0" prefWidth="282.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Eircode" />
+                                    <TextField fx:id="centreEircode" />
+                                    <Button mnemonicParsing="false" onAction="#searchCentreEircode" text="Search" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="39.0" prefWidth="299.0">
+                                 <children>
+                                    <Button layoutX="65.0" layoutY="7.0" mnemonicParsing="false" onAction="#showAllCentres" text="Show All Vaccination Centres" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab onSelectionChanged="#updateVaccinationCentre" text="Vaccination Booth">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="446.0">
+                     <children>
+                        <ListView fx:id="boothListView" layoutX="11.0" layoutY="14.0" onMousePressed="#selectBooth" prefHeight="165.0" prefWidth="574.0" />
+                        <VBox layoutX="327.0" layoutY="184.0" prefHeight="150.0" prefWidth="258.0" spacing="2.0">
+                           <children>
+                              <HBox prefHeight="14.0" prefWidth="258.0" spacing="5.0">
+                                 <children>
+                                    <Label prefHeight="18.0" prefWidth="86.0" text="Booth identifier" />
+                                    <TextField fx:id="editBoothIdentifier" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="18.0" prefWidth="258.0" spacing="34.0">
+                                 <children>
+                                    <Label text="Floor Level" />
+                                    <TextField fx:id="editFloorLevel" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="18.0" prefWidth="258.0" spacing="28.0">
+                                 <children>
+                                    <Label text="Accessibility" />
+                                    <TextField fx:id="editAccessibility" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="6.0" prefWidth="258.0">
+                                 <children>
+                                    <Button layoutX="-4.0" layoutY="1.0" mnemonicParsing="false" onAction="#editBooth" text="Edit" />
+                                    <Label fx:id="invalidData" layoutX="92.0" layoutY="6.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="11.0" layoutY="187.0" prefHeight="140.0" prefWidth="299.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="11.0" prefWidth="299.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Choose Centre" />
+                                    <ChoiceBox fx:id="centreChoiceBox" prefWidth="150.0" />
+                                    <Button mnemonicParsing="false" onAction="#showCentreBooths" text="Search" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="0.0" prefWidth="282.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Booth Identifier" />
+                                    <TextField fx:id="boothIdentifier" />
+                                    <Button mnemonicParsing="false" onAction="#searchBoothIdentifier" text="Search" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="0.0" prefWidth="282.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Floor Level" />
+                                    <TextField fx:id="floorLevel" />
+                                    <Button mnemonicParsing="false" onAction="#searchFloorLevel" text="Search" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="98.0" layoutY="12.0" mnemonicParsing="false" onAction="#showAllBooths" text="Show All Booths" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Patients">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="600.0">
+                     <children>
+                        <ListView fx:id="patientListView" layoutX="11.0" layoutY="14.0" onMouseClicked="#selectPatient" prefHeight="165.0" prefWidth="574.0" />
+                        <VBox layoutX="11.0" layoutY="187.0" prefHeight="86.0" prefWidth="299.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="0.0" prefWidth="282.0" spacing="5.0">
+                                 <children>
+                                    <Label text="PPSN" />
+                                    <TextField fx:id="searchPPSN" />
+                                    <Button mnemonicParsing="false" onAction="#searchPPSN" text="Search" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="0.0" prefWidth="282.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Date of Birth" />
+                                    <TextField fx:id="searchDateOfBirth" />
+                                    <Button mnemonicParsing="false" onAction="#searchDateOfBirth" text="Search" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="25.0" prefWidth="299.0">
+                                 <children>
+                                    <Button layoutX="96.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAllPatients" text="Show All Patients" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                        <HBox layoutX="326.0" layoutY="187.0" prefHeight="178.0" prefWidth="258.0">
+                           <children>
+                              <AnchorPane prefHeight="178.0" prefWidth="102.0">
+                                 <children>
+                                    <Label layoutY="5.0" prefHeight="18.0" prefWidth="39.0" text="PPSN" />
+                                    <Label layoutY="35.0" text="Name" />
+                                    <Label layoutY="64.0" text="Date Of Birth" />
+                                    <Label layoutY="125.0" text="Phone No." />
+                                    <Label layoutY="155.0" text="Email" />
+                                    <Label layoutY="96.0" text="Address" />
+                                    <Label layoutY="185.0" text="Accessibility" />
+                                 </children>
+                              </AnchorPane>
+                              <VBox prefHeight="154.0" prefWidth="161.0" spacing="5.0">
+                                 <children>
+                                    <TextField fx:id="editPPSN" />
+                                    <TextField fx:id="editPatientName" />
+                                    <DatePicker fx:id="editPatientDateOfBirth" />
+                                    <TextField fx:id="editPatientAddress" />
+                                    <TextField fx:id="editPatientPhoneNum" />
+                                    <TextField fx:id="editPatientEmail" />
+                                    <TextField fx:id="editPatientAccessibility" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Button layoutX="326.0" layoutY="393.0" mnemonicParsing="false" onAction="#editPatient" text="Edit" />
+                        <ListView fx:id="patientRecordsListView" layoutX="15.0" layoutY="309.0" prefHeight="108.0" prefWidth="298.0" />
+                        <Label fx:id="warningLabel" layoutX="440.0" layoutY="397.0" />
+                        <Label layoutX="15.0" layoutY="291.0" text="Patient Records" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Vaccines">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="8.0" layoutY="146.0" prefHeight="269.0" prefWidth="578.0" spacing="10.0">
+                           <children>
+                              <ListView fx:id="pendingListView" prefHeight="291.0" prefWidth="342.0" />
+                              <ListView fx:id="completedListView" prefHeight="224.0" prefWidth="339.0" />
+                           </children>
+                        </HBox>
+                        <Label layoutX="8.0" layoutY="122.0" text="Pending" />
+                        <Label layoutX="300.0" layoutY="122.0" text="Completed" />
+                        <VBox layoutX="14.0" layoutY="25.0" prefHeight="62.0" prefWidth="194.0">
+                           <children>
+                              <Label text="Batch Number" />
+                              <HBox prefHeight="22.0" prefWidth="194.0" spacing="5.0">
+                                 <children>
+                                    <TextField fx:id="batchNum" prefHeight="26.0" prefWidth="138.0" />
+                                    <Button mnemonicParsing="false" onAction="#searchBatchNum" text="Search" />
+                                 </children>
+                              </HBox>
+                              <Label text="Vaccine Type" />
+                              <HBox prefHeight="11.0" prefWidth="194.0" spacing="5.0">
+                                 <children>
+                                    <ComboBox fx:id="vaccineType" editable="true" prefHeight="26.0" prefWidth="138.0" />
+                                    <Button mnemonicParsing="false" onAction="#searchVaccineType" text="Search" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="232.0" layoutY="37.0" prefHeight="59.0" prefWidth="195.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="4.0" prefWidth="195.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Searching By:" />
+                                    <Label fx:id="searchByLabel" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="6.0" prefWidth="195.0" spacing="5.0">
+                                 <children>
+                                    <Label text="No. of Pending:" />
+                                    <Label fx:id="pendingLabel" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="20.0" prefWidth="195.0" spacing="5.0">
+                                 <children>
+                                    <Label text="No. of Completed:" />
+                                    <Label fx:id="completedLabel" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ToolBar layoutY="450.0" prefHeight="40.0" prefWidth="600.0">
+        <items>
+            <Button mnemonicParsing="false" onAction="#switchToMainMenu" text="Back to Main Menu" />
+        </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

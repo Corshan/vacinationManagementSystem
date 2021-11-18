@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddMenuController">
+   <children>
+      <TabPane prefHeight="360.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Centre">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="600.0">
+                     <children>
+                        <VBox layoutX="120.0" layoutY="12.0" prefHeight="330.0" prefWidth="310.0" spacing="10.0">
+                           <children>
+                              <Label text="Name of Centre" />
+                              <TextField fx:id="centreName" />
+                              <Label prefHeight="18.0" prefWidth="48.0" text="Address" />
+                              <TextField fx:id="centreAddress" />
+                              <Label text="Eircode" />
+                              <TextField fx:id="centreEircode" />
+                              <AnchorPane prefHeight="0.0" prefWidth="310.0">
+                                 <children>
+                                    <Label text="Number of Parking Spaces" />
+                                    <Label fx:id="parkingSpaceNumWarning" layoutX="195.0" />
+                                 </children>
+                              </AnchorPane>
+                              <TextField fx:id="centreParkingSpaceNum" />
+                              <AnchorPane prefHeight="37.0" prefWidth="307.0">
+                                 <children>
+                                    <Button layoutX="135.0" layoutY="6.0" mnemonicParsing="false" onAction="#addVaccinationCentre" text="Add" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab onSelectionChanged="#updateVaccinationCentre" text="Booth">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="120.0" layoutY="12.0" prefHeight="330.0" prefWidth="310.0" spacing="10.0">
+                           <children>
+                              <Label text="Vaccination Centre" />
+                              <ChoiceBox fx:id="centreChoiceBox" prefHeight="26.0" prefWidth="342.0" />
+                              <HBox prefHeight="0.0" prefWidth="310.0" spacing="20.0">
+                                 <children>
+                                    <Label text="Booth Identifier" />
+                                    <Label fx:id="boothIdentifierWarning" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="boothIdentifier" />
+                              <AnchorPane prefHeight="5.0" prefWidth="310.0">
+                                 <children>
+                                    <Label text="Floor Level" />
+                                    <Label fx:id="floorLevelWarning" layoutX="150.0" />
+                                 </children>
+                              </AnchorPane>
+                              <TextField fx:id="floorLevel" />
+                              <Label text="Accessablity" />
+                              <TextField fx:id="accessibility" />
+                              <AnchorPane prefHeight="42.0" prefWidth="310.0">
+                                 <children>
+                                    <Button layoutX="129.0" layoutY="12.0" mnemonicParsing="false" onAction="#addVaccinationBooth" text="Add" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Patient">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="120.0" layoutY="12.0" prefHeight="330.0" prefWidth="310.0">
+                           <children>
+                              <Label text="Name" />
+                              <TextField fx:id="patientName" />
+                              <HBox prefHeight="5.0" prefWidth="310.0" spacing="10.0">
+                                 <children>
+                                    <Label text="PPSN" />
+                                    <Label fx:id="invalidPPSN" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="PPSN" />
+                              <AnchorPane prefHeight="10.0" prefWidth="310.0">
+                                 <children>
+                                    <Label layoutY="3.0" text="Date of Birth" />
+                                    <Label layoutX="155.0" layoutY="2.0" text="Phone Number" />
+                                    <Label fx:id="invalidPhoneNum" layoutX="252.0" layoutY="3.0" />
+                                    <Label fx:id="invalidDateOfBirth" layoutX="90.0" layoutY="2.0" />
+                                 </children>
+                              </AnchorPane>
+                              <HBox prefHeight="30.0" prefWidth="310.0" spacing="15.0">
+                                 <children>
+                                    <DatePicker fx:id="dateOfBirth" prefHeight="26.0" prefWidth="142.0" />
+                                    <TextField fx:id="phoneNum" prefHeight="25.0" prefWidth="154.0" />
+                                 </children>
+                              </HBox>
+                              <Label text="Address" />
+                              <TextField fx:id="patientAddress" />
+                              <HBox prefHeight="7.0" prefWidth="310.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Email" />
+                                    <Label fx:id="invalidEmail" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="patientEmail" />
+                              <Label text="Accessibility" />
+                              <TextField fx:id="patientAccessibility" />
+                              <AnchorPane prefHeight="46.0" prefWidth="310.0">
+                                 <children>
+                                    <Button layoutX="136.0" layoutY="10.0" mnemonicParsing="false" onAction="#addPatient" text="Add" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ToolBar layoutY="360.0" prefHeight="40.0" prefWidth="600.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#switchToMainMenu" text="Back to Main Menu" />
+            <Button mnemonicParsing="false" onAction="#clear" text="Clear" />
+        </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

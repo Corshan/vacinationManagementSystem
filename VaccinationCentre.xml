@@ -1,0 +1,17 @@
+<object-stream>
+  <controllers.VaccinationAPI>
+    <vaccinationCentres>
+      <head>
+        <contents class="models.VaccinationCentre">
+          <name>wit</name>
+          <address>sdf</address>
+          <eircode>SDF</eircode>
+          <parkingSpaces>100</parkingSpaces>
+          <booths/>
+        </contents>
+        <outer-class reference="../.."/>
+      </head>
+    </vaccinationCentres>
+    <patients/>
+  </controllers.VaccinationAPI>
+</object-stream>
